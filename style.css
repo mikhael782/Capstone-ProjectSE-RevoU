@@ -1,0 +1,535 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    /* background: #3498db; */
+}
+
+/* navbar */
+nav {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #006ec3;
+    position: fixed; /* Tambahkan properti position: fixed */
+    top: 0; /* Letakkan navbar di bagian atas */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Atur z-index agar navbar tampil di atas konten */
+    height: 70px;
+    width: 100%; /* Lebar penuh */
+}
+
+/* Untuk memberi ruang agar konten tidak tertutup oleh navbar */
+body {
+    padding-top: 70px; /* Atur padding atas sebesar tinggi navbar */
+}
+
+.logo {
+    color: #fff;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    color: #001e36;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.menu-icon i {
+    color: #fff;
+    font-size: 30px;
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 10px 20px;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        text-align: center;
+        background: #004274;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease; /* Transisi untuk animasi dropdown menu */
+    }
+
+    nav ul.open {
+        max-height: 300px; /* Tampilkan menu dropdown saat class "open" aktif */
+    }
+
+    nav ul li {
+        padding: 20px;
+        padding-top: 0;
+        margin-top: 15px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    #menuList {
+        transition: all 0.5s;
+    }
+}
+/* navbar */
+
+/* jumbotron */
+.jumbotron {
+    background-image: url('assets/img/bikes.webp'); /* Ganti path dengan URL gambar Anda */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    height: 650px;
+}
+
+.jumbotron-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.jumbotron h1 {
+    font-size: 2.5em;
+    margin-top: 65px;
+    margin-bottom: 20px;
+}
+
+.jumbotron p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.jumbotron .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #025594;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.jumbotron .btn:hover {
+    background-color: #81c1f3;
+}
+
+/* Responsif untuk Jumbotron */
+@media (max-width: 600px) {
+    .jumbotron {
+        padding: 80px 20px;
+    }
+}
+/* jumbotron */
+
+/* about */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+}
+
+.image {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.image img {
+    max-width: 100%; /* Menggunakan max-width agar gambar tidak melebihi lebar parent container */
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.text {
+    flex: 2;
+}
+
+.text h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    text-align: justify;
+}
+/* Media Queries untuk Responsif */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .image {
+        width: 40%;
+        max-width: none; /* Hapus batasan lebar maksimum untuk tampilan desktop */
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+
+    .text {
+        width: 60%;
+        max-width: none; /* Hapus batasan lebar maksimum untuk tampilan desktop */
+    }
+}
+/* about */
+
+/* team */
+.team-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 30px; /* Jarak antara judul dan daftar tim */
+    margin-top: 50px;
+}
+
+.team-header h1{
+    font-size: 24px;
+    color: #333;
+}
+
+.team-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan box shadow */
+    transition: box-shadow 0.3s ease; /* Efek transisi pada box shadow saat hover */
+}
+
+.team-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.team-card p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+/* team */
+
+/* contact */
+.form-contact-container {
+    background-color: rgb(225, 248, 242);
+    border-radius: 5px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25) , 
+    0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-height: 522px;
+    min-width: 370px;
+    margin-top: 90px;
+}
+
+.card-container {
+    display: flex;
+}
+
+.left {
+    flex: 1;
+    height: 480px;
+    background-color: rgb(208, 207, 249);
+}
+
+.right {
+    display: flex;
+    flex: 1;
+    height: 460px;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    flex: 1;
+    height: 522px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.left.container {
+    height: 50%;
+    width: 80%;
+    /* text-align: center; */
+    line-height: 22px;
+}
+
+.left p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #000;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: black;
+}
+
+.right-container {
+    width: 70%;
+    height: 80%;
+    text-align: center;
+}
+
+input, textarea {
+    background-color: #edeaea;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+input:focus, textarea:focus {
+    outline: 1px solid #d0e5f5;
+}
+
+button {
+   border-radius: 20px;
+   border: 1px solid #d0e5f5;
+   background-color: #025594;
+   color: #fff;
+   font-size: 12px;
+   font-weight: bold;
+   padding: 12px 45px;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   transition: transfrom 80ms ease-out;
+   cursor: pointer;
+}
+
+button:hover {
+    background-color: #81c1f3;
+}
+
+textarea {
+    height: 90px;
+}
+/* contact */
+
+/* footer */
+/* footer */
+.site-footer{
+    background-color:#26272b;
+    padding:45px 0 20px;
+    font-size:15px;
+    line-height:24px;
+    color:#737373;
+    margin-top: 90px;
+}
+
+.site-footer .maps span{
+    float: left;
+    padding-left: 45px;
+}
+
+.site-footer .maps span iframe{
+    width: 500px;
+    height: 400px;
+}
+
+.site-footer hr{
+    border-top-color:#bbb;
+    opacity:0.5
+}
+
+.site-footer hr.small{
+    margin:20px 0
+}
+
+.site-footer h6{
+    color:#fff;
+    font-size:16px;
+    text-transform:uppercase;
+    margin-top:5px;
+    letter-spacing:2px
+}
+
+.site-footer a{
+    color:#737373;
+}
+
+.site-footer a:hover{
+    color:#3366cc;
+    text-decoration:none;
+}
+
+.footer-links{
+  padding-left:0;
+  list-style:none
+}
+
+.footer-links li{
+    display:block
+}
+
+.footer-links a{
+    color:#737373;
+    text-decoration:none;
+}
+
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover{
+    color:#3366cc;
+    text-decoration:none;
+}
+
+.footer-links.inline li{
+    display:inline-block
+}
+
+.site-footer .social-icons{
+    text-align:center
+}
+
+.site-footer .social-icons a{
+    width:40px;
+    height:40px;
+    line-height:40px;
+    margin-left:6px;
+    margin-right:4px;
+    border-radius:100%;
+    background-color:#33353d;
+}
+
+.site-footer .row p,ul{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@media (max-width:767px){
+    .site-footer    {
+        padding-bottom:0
+    }
+    .site-footer .maps span{
+        float: left;
+        padding-left: 45px;
+    }
+}
+
+@media (max-width:1050px){
+    .site-footer .maps span iframe{
+        width: 400px;
+        height: 400px;
+    }
+}
+
+.social-icons{
+    padding: left ;
+    margin-bottom:0;
+    list-style:none
+}
+.social-icons li{
+    display:inline-block;
+    margin-bottom:4px
+}
+.social-icons li.title{
+    margin-right:15px;
+    text-transform:uppercase;
+    color:#96a2b2;
+    font-weight:700;
+    font-size:13px
+}
+
+.social-icons a{
+    background-color:#eceeef;
+    color:#818a91;
+    font-size:16px;
+    display:inline-block;
+    line-height:44px;
+    width:44px;
+    height:44px;
+    text-align:center;
+    margin-right:8px;
+    border-radius:100%;
+}
+
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover{
+    color:#fff;
+    background-color:#29aafe
+}
+
+.social-icons.size-sm a{
+    line-height:34px;
+    height:34px;
+    width:34px;
+    font-size:14px
+}
+
+.social-icons a.instagram:hover{
+    background-color:#E1306C
+}
+
+.social-icons a.twitter:hover{
+    background-color:#00aced
+}
+
+.social-icons a.linkedin:hover{
+    background-color:#007bb6
+}
+
+.social-icons a.email:hover{
+    background-color:#E1306C
+}
+
+@media (max-width:767px){
+    .social-icons li.title    {
+        display:block;
+        margin-right:0;
+        font-weight:600
+    }
+}
+/* footer */

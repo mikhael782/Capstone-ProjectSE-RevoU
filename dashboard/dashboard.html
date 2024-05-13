@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Home</title>
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style-dashboard.css">
+    <!-- font icon box -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+</head>
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+        <form class="search-form">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+        <div class="profile">
+            <img src="../assets/img/user.jpg" alt="Profile Picture">
+            <span class="profile-name">User</span>
+        </div>
+    </div>    
+    <!-- navbar -->
+    
+    <div class="container">
+        <!-- side navbar -->
+        <div class="sidebar">
+            <div id="menu-button">
+                <input type="checkbox" id="menu-checkbox">
+                <label for="menu-checkbox" id="menu-label">
+                    <div id="hamburger"></div>
+                </label>
+            </div>
+            <br><br>
+            <div class="header">
+                <div class="list-item">
+                    <a href="#">
+                        <span class="desc-header">
+                            TEAM 5 PALEMBANG
+                        </span>
+                    </a>
+                </div>
+                <hr>
+                <div class="main">
+                    <div class="list-item">
+                        <i class='bx bxs-dashboard icon'></i>
+                        <a href="#" class="active">
+                            <span class="desc">Dashboard</span>
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <i class='bx bxs-edit icon'></i>
+                        <!-- <i class='bx bx-objects-vertical-bottom icon'></i> -->
+                        <a href="about-us.html">
+                            <span class="desc">About</span>
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <i class='bx bxs-user icon'></i>
+                        <a href="team.html">
+                            <span class="desc">Our Team</span>
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <i class='bx bxs-contact icon'></i>
+                        <a href="contact-us.html">
+                            <span class="desc">Contact Us</span>
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <i class='bx bxs-exit icon'></i>
+                        <a href="../index.html">
+                            <span class="desc">Kembali</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- side navbar -->
+    
+        <!-- main content -->
+        <div class="main-content">
+            <div class="content">
+                <p>Pages / Dashboard</p>
+                <h2>Dashboard Bike Sales In Europe</h2>
+
+                <!-- box -->
+                <div class="content-box">
+                    <div class="isi-box">
+                        <i class='bx bxs-bar-chart-alt-2'></i>
+                        <div>
+                            <h3>Total Profit</h3>
+                            <p>$350.4</p>
+                        </div>
+                    </div>
+
+                    <div class="isi-box">
+                        <i class='bx bx-dollar'></i>
+                        <div>
+                            <h3>Total Cost</h3>
+                            <p>$642.39</p>
+                        </div>
+                    </div>
+
+                    <div class="isi-box">
+                        <i class='bx bx-line-chart'></i>
+                        <div>
+                            <h3>Total Revenue</h3>
+                            <p>$574.34</p>
+                        </div>
+                    </div>
+
+                    <div class="isi-box">
+                        <i class='bx bxs-copy-alt'></i>
+                        <div>
+                            <h3>Total Products</h3>
+                            <p>2935</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- box -->
+
+                <!-- chart -->
+                <div class="charts">
+                    <div class="charts-card">
+                        <div class="chart-title">
+                            <h3>Sales By Age And Category</h3>
+                        </div>
+                        <div id="bar-chart"></div>
+                    </div>
+
+                    <div class="charts-card">
+                        <div class="chart-title">
+                            <h3>Quantity Sold By Category</h3>
+                        </div>
+                        <div id="bar-chart-qty"></div>
+                    </div>
+                </div>
+
+                <div class="chart">
+                    <div class="chart">
+                        <div class="chart-title2">
+                            <h3>Ini Judul</h3>
+                        </div>
+                        <div id="bar-chart-AVG"></div>
+                    </div>
+                </div>
+                <!-- chart -->
+            </div>
+        </div>
+        <!-- main content -->
+    </div>
+
+    <script src="../dist/main.js"></script>
+</body>
+</html>
