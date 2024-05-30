@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart SE RevoU</title>
+    <style>
+        .chart {
+            display: none;
+        }
+
+        /* Gaya untuk dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn{
+            padding: 11px 28px;
+            border-radius: 8px;
+        }
+
+        /* Gaya untuk konten dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Gaya untuk button di dalam dropdown */
+        .dropdown-content button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            border: none;
+            background: none;
+            text-align: left;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Gaya untuk menunjukkan konten dropdown saat di-hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <button id="btn-penjualan">Penjualan Bulanan</button>
+            <button id="btn-qty-sold-ctg">Order Quantity by country</button>
+            <button id="btn-total-order-qty-country">Order Quantity by years</button>
+            <button id="btn-sold-age-ctg">Order Quantity by years</button>
+        </div>
+    </div>
+
+    <div class="chart" id="chart-penjualan" style="width: 900px; margin-top: 50px;">
+        <p>Penjualan Bulanan</p>
+        <canvas id="orderQty"></canvas>
+    </div>
+
+    <!-- <div style="width: 900px;">
+        <canvas id="AOV"></canvas>
+    </div> -->
+
+    <div class="chart" id="qty-sold-category" style="width: 900px; margin-top: 50px;">
+        <p>Penjualan</p>
+        <canvas id="qtySoldCategory"></canvas>
+    </div>
+
+    <div class="chart" id="total-order-qty-country" style="width: 900px; margin-top: 50px;">
+        <p>Penjualan</p>
+        <canvas id="qtySoldLocation"></canvas>
+    </div>
+
+    <div class="chart" id="sold-by-age-and-category" style="width: 900px; margin-top: 50px;">
+        <p>Penjualan</p>
+        <canvas id="SoldByAgeNCtg"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // bar chart Order Quantity
+        const getOrderQty = document.getElementById("orderQty");
+
+        // bar chart Average Of Value
+        const getAOV = document.getElementById("AOV");
+
+        // bar chart Quantity Sold by Category 2016
+        const getQtySoldCtg = document.getElementById("qtySoldCategory");
+
+        // bar chart Quantity Sold by Location
+        const getQtySoldLc = document.getElementById("qtySoldLocation");
+
+        // bar chart Sold By Age N Category
+        const getSoldByAgeNCtg = document.getElementById("SoldByAgeNCtg");
+
+        // filtering
+        const btnPenjualan = document.getElementById("btn-penjualan");
+        const btnSoldByCtg = document.getElementById("btn-qty-sold-ctg");
+        const btnTotalOrderQty = document.getElementById("btn-total-order-qty-country");
+        const btnSoldByAgeNCtg = document.getElementById("btn-sold-age-ctg");
+
+        const chartPenjualan = document.getElementById("chart-penjualan");
+        const chartSoldByCtg = document.getElementById("qty-sold-category");
+        const chartTotalOrderQty = document.getElementById("total-order-qty-country");
+        const chartSoldByAgeNCtg = document.getElementById("sold-by-age-and-category");
+
+        btnPenjualan.addEventListener("click", () => {
+            chartPenjualan.style.display = "block";
+            chartSoldByCtg.style.display = "none";
+            chartTotalOrderQty.style.display = "none";
+            chartSoldByAgeNCtg.style.display = "none";
+        });
+
+        btnSoldByCtg.addEventListener("click", () => {
+            chartSoldByCtg.style.display = "block";
+            chartPenjualan.style.display = "none";
+            chartTotalOrderQty.style.display = "none";
+            chartSoldByAgeNCtg.style.display = "none";
+        });
+
+        btnTotalOrderQty.addEventListener("click", () => {
+            chartTotalOrderQty.style.display = "block";
+            chartPenjualan.style.display = "none";
+            chartSoldByCtg.style.display = "none";
+            chartSoldByAgeNCtg.style.display = "none";
+        });
+
+        btnSoldByAgeNCtg.addEventListener("click", () => {
+            chartSoldByAgeNCtg.style.display = "block";
+            chartPenjualan.style.display = "none";
+            chartSoldByCtg.style.display = "none";
+            chartTotalOrderQty.style.display = "none";
+        });
+
+        // bar chart Order Quantity
+        const getOrderQuantity = async () => {
+            const response = await fetch("data/dataset.json");
+            const dataJson = await response.json();
+            // console.log(dataJson);
+
+            // Objek untuk menyimpan total pesanan berdasarkan bulan
+            const totalOrdersByMonth = {
+                "January": 0,
+                "February": 0,
+                "March": 0,
+                "April": 0,
+                "May": 0,
+                "June": 0,
+                "July": 0
+            };
+
+            // Menghitung total pesanan berdasarkan bulan
+            dataJson.data.forEach((item) => {
+                const month = item.Month;
+                if (totalOrdersByMonth.hasOwnProperty(month)) {
+                    totalOrdersByMonth[month] += parseInt(item.Order_Quantity);
+                }
+            });
+
+            new Chart(getOrderQty, {
+                type: "bar",
+                data: {
+                    labels: Object.keys(totalOrdersByMonth), // Mengambil label dari objek totalOrdersByMonth
+                    datasets: [
+                        {
+                            label: 'Penjualan Bulanan',
+                            data: Object.values(totalOrdersByMonth), // Mengambil data dari objek totalOrdersByMonth
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1,
+                        },
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        };
+
+        // bar chart Quantity Sold by Category 2016
+        const getQtySoldByCategory = async () => {
+            const response = await fetch("data/dataset.json");
+            const dataJson = await response.json();
+
+            // Menginisialisasi variabel untuk menyimpan total penjualan tiap kategori
+            let totalAccessories = 0;
+            let totalClothing = 0;
+            let totalBikes = 0;
+
+            // Menghitung total penjualan tiap kategori
+            dataJson.data.forEach((item) => {
+                if (item.Product_Category === "Accessories") {
+                    totalAccessories += parseInt(item.Order_Quantity);
+                } else if (item.Product_Category === "Clothing") {
+                    totalClothing += parseInt(item.Order_Quantity);
+                } else if (item.Product_Category === "Bikes") {
+                    totalBikes += parseInt(item.Order_Quantity);
+                }
+            });
+
+            // Membuat bar chart
+            new Chart(getQtySoldCtg, {
+                type: "bar",
+                data: {
+                    labels: ["Accessories", "Clothing", "Bikes"],
+                    datasets: [
+                        {
+                            label: "Quantity Sold by Category 2016",
+                            data: [totalAccessories, totalClothing, totalBikes],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)', // Merah untuk aksesoris
+                                'rgba(54, 162, 235, 0.2)', // Biru untuk pakaian
+                                'rgba(255, 206, 86, 0.2)' // Kuning untuk sepeda
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)'
+                            ],
+                            borderWidth: 1,
+                        },
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        };
+
+        // bar chart Quantity Sold by Location
+        const getQtySoldByLocation = async () => {
+            const response = await fetch("data/dataset.json");
+            const dataJson = await response.json();
+            console.log(dataJson);
+
+            // Objek untuk menyimpan total pesanan berdasarkan negara
+            const totalOrdersByCountry = {
+                "United States": 0,
+                "Australia": 0,
+                "Canada": 0,
+                "United Kingdom": 0,
+                "Germany": 0,
+                "France": 0
+            };
+
+            // Menghitung total pesanan berdasarkan negara
+            dataJson.data.forEach((item) => {
+                const country = item.Country;
+                if (totalOrdersByCountry.hasOwnProperty(country)) {
+                    totalOrdersByCountry[country] += parseInt(item.Order_Quantity);
+                }
+            });
+
+            // Membuat bar chart
+            new Chart(getQtySoldLc, {
+                type: "bar",
+                data: {
+                    labels: Object.keys(totalOrdersByCountry), // Mengambil label dari objek totalOrdersByCountry
+                    datasets: [
+                        {
+                            label: 'Total Order Quantity by Country',
+                            data: Object.values(totalOrdersByCountry), // Mengambil data dari objek totalOrdersByCountry
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1,
+                        },
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        };
+
+        // bar chart Sold By Age N Category
+        const getSoldByAgeAndCtg = async () => {
+            const response = await fetch("data/dataset.json");
+            const dataJson = await response.json();
+
+            // Initialize an object to store sales by category and age group
+            const salesByCategoryAndAgeGroup = {};
+
+            // Aggregate sales by category and age group
+            dataJson.data.forEach((item) => {
+                const category = item.Product_Category;
+                const ageGroup = item.Age_Group;
+                const orderQuantity = parseInt(item.Order_Quantity);
+
+                if (!salesByCategoryAndAgeGroup[category]) {
+                    salesByCategoryAndAgeGroup[category] = {};
+                }
+
+                if (!salesByCategoryAndAgeGroup[category][ageGroup]) {
+                    salesByCategoryAndAgeGroup[category][ageGroup] = 0;
+                }
+
+                salesByCategoryAndAgeGroup[category][ageGroup] += orderQuantity;
+            });
+
+            // Prepare data for the bar chart
+            const categories = Object.keys(salesByCategoryAndAgeGroup);
+            const ageGroups = [
+                "Youth (<25)",
+                "Young Adults (25-34)",
+                "Adults (35-64)",
+                "Seniors (64+)"
+            ];
+
+            const datasets = ageGroups.map(ageGroup => {
+                return {
+                    label: ageGroup,
+                    data: categories.map(category => salesByCategoryAndAgeGroup[category][ageGroup] || 0),
+                    backgroundColor: getRandomColor(), // Function to generate random colors
+                    borderColor: getRandomColor(),
+                    borderWidth: 1
+                };
+            });
+
+            // Function to generate random colors
+            function getRandomColor() {
+                const r = Math.floor(Math.random() * 255);
+                const g = Math.floor(Math.random() * 255);
+                const b = Math.floor(Math.random() * 255);
+                return `rgba(${r}, ${g}, ${b}, 0.2)`;
+            }
+
+            // Create the bar chart
+            new Chart(getSoldByAgeNCtg, {
+                type: "bar",
+                data: {
+                    labels: categories,
+                    datasets: datasets
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        };
+
+        getOrderQuantity();
+        chartPenjualan.style.display = "block";
+        getQtySoldByCategory();
+        chartSoldByCtg.style.display = "block";
+        getQtySoldByLocation();
+        chartTotalOrderQty.style.display = "block";
+        getSoldByAgeAndCtg();
+        chartSoldByAgeNCtg.style.display = "block";
+    </script>
+</body>
+</html>

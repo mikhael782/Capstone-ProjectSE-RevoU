@@ -1,0 +1,32 @@
+{
+  "data" : [
+    {
+      "Month": "January",
+      "AoV": "47.49"
+    },
+    {
+      "Month": "February",
+      "AoV": "48.06"
+    },
+    {
+      "Month": "March",
+      "AoV": "48.37"
+    },
+    {
+      "Month": "April",
+      "AoV": "47.99"
+    },
+    {
+      "Month": "May",
+      "AoV": "53.32"
+    },
+    {
+      "Month": "June",
+      "AoV": "57.31"
+    },
+    {
+      "Month": "July",
+      "AoV": "6.89"
+    }
+  ]
+}

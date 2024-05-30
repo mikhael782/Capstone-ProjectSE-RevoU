@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style-dashboard.css">
     <!-- font icon box -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- ApexCharts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <!-- animation on scroll javascript -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <!-- navbar -->
@@ -127,37 +127,86 @@
                 </div>
                 <!-- box -->
 
+                <!-- button dropdown untuk filtering chart -->
+                <div class="dropdown">
+                    <button class="dropbtn">Filtering Chart</button>
+                    <div class="dropdown-content">
+                        <button id="btn-penjualan">Penjualan Bulanan</button>
+                        <button id="btn-aov">Average Of Value</button>
+                        <button id="btn-qty-sold-ctg">Order Quantity by country</button>
+                        <button id="btn-total-order-qty-country">Order Quantity by years</button>
+                        <button id="btn-sold-age-ctg">Order Quantity by years</button>
+                        <button id="btn-refresh">Refresh</button>
+                    </div>
+                </div>
+                <!-- button dropdown untuk filtering chart -->
+
                 <!-- chart -->
                 <div class="charts">
-                    <div class="charts-card">
-                        <div class="chart-title">
-                            <h3>Sales By Age And Category</h3>
-                        </div>
-                        <div id="bar-chart"></div>
+                    <!-- bar chart Order Quantity -->
+                    <div class="chart-container" id="chart-penjualan-bulanan">
+                        <canvas id="orderQty"></canvas>
+                    </div>
+                
+                    <!-- line chart Average Of Value -->
+                    <div class="chart-container" id="chart-aov">
+                        <canvas id="AOV"></canvas>
+                    </div>
+                
+                    <!-- bar chart Quantity Sold by Category 2016 -->
+                    <div class="chart-container" id="chart-qty-sold-category">
+                        <canvas id="qtySoldCategory"></canvas>
+                    </div>
+                
+                    <!-- bar chart Quantity Sold by Location -->
+                    <div class="chart-container" id="chart-total-order-qty-country">
+                        <canvas id="qtySoldLocation"></canvas>
                     </div>
 
-                    <div class="charts-card">
-                        <div class="chart-title">
-                            <h3>Quantity Sold By Category</h3>
-                        </div>
-                        <div id="bar-chart-qty"></div>
+                    <!-- bar chart Sold By Age And Category -->
+                    <div class="chart-container" id="chart-sold-by-age-and-category">
+                        <canvas id="SoldByAgeNCtg"></canvas>
                     </div>
-                </div>
-
-                <div class="chart">
-                    <div class="chart">
-                        <div class="chart-title2">
-                            <h3>Ini Judul</h3>
-                        </div>
-                        <div id="bar-chart-AVG"></div>
-                    </div>
-                </div>
+                </div>                
                 <!-- chart -->
+
+                <!-- tabel total pendapatan -->
+                <table id="product-table">
+                    <thead>
+                      <tr>
+                        <th>Product Category</th>
+                        <th>Sub Category</th>
+                        <th>Country</th>
+                        <th>Revenue</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Data table akan muncuk disini -->
+                    </tbody>
+                </table>
             </div>
         </div>
         <!-- main content -->
     </div>
 
-    <script src="../dist/main.js"></script>
+    <!-- footer -->
+    <footer class="footer">
+        <p>
+            &copy; Copyright 2024. All Rights Reserved. Developed by 
+            Frontend Engineer Tim 5 Palembang.
+        </p>
+    </footer>
+    <!-- footer -->
+
+    <script src="../js/main.js"></script>
+    <!-- chart javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+    <!-- animation on scroll javascript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
