@@ -144,6 +144,20 @@ nav ul li a:hover {
     background-color: #81c1f3;
 }
 
+/* duration time animasi jumbotron */
+.animate__animated.animate__backInLeft {
+    --animate-duration: 1.5s;
+}
+
+.animate__animated.animate__backInRight {
+    --animate-duration: 1.5s;
+}
+
+.delay-button{
+    animation-delay: .1s;
+}
+/* duration time animasi jumbotron */
+
 /* Responsif untuk Jumbotron */
 @media (max-width: 600px) {
     .jumbotron {
@@ -186,6 +200,16 @@ nav ul li a:hover {
     color: #666;
     text-align: justify;
 }
+
+/* duration time animasi about */
+.animate__animated.animate__fadeInUp {
+    --animate-duration: 1.3s;
+}
+
+.animate__animated.animate__fadeInDown {
+    --animate-duration: 1.3s;
+}
+/* duration time animasi about */
 /* Media Queries untuk Responsif */
 @media (min-width: 768px) {
     .container {
