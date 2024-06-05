@@ -13,6 +13,10 @@
     background-color: #b3e0ff;
 }
 
+.animate__animated.animate__fadeInDownBig {
+    --animate-duration: 5s;
+}
+
 .search-form {
     display: flex;
     align-items: center;
@@ -80,7 +84,7 @@
 }
 
 .main-content{
-    background-color:  #9BBEC8;
+    background-color: #9BBEC8;
     flex-grow: 1;
 }
 
@@ -158,6 +162,36 @@
     background: #1a8cff;
     transition: all ease-in .5s;
 }
+
+/* duration time animasi sidebar */
+.delay-sidebar-1{
+    animation-delay: .1s;
+}
+
+.delay-sidebar-2{
+    animation-delay: .2s;
+}
+
+.delay-sidebar-3{
+    animation-delay: .3s;
+}
+
+.delay-sidebar-4{
+    animation-delay: .4s;
+}
+
+.delay-sidebar-5{
+    animation-delay: .5s;
+}
+
+.delay-sidebar-6{
+    animation-delay: .6s;
+}
+
+.delay-sidebar-7{
+    animation-delay: .7s;
+}
+/* duration time animasi sidebar */
 /* sidebar */
 
 /* toggle menu */
@@ -333,6 +367,24 @@
     font-size: 15px;
     color: #2B3674;
 }
+
+/* duration time animasi box */
+.delay-box-1{
+    animation-delay: .1s;
+}
+
+.delay-box-2{
+    animation-delay: .2s;
+}
+
+.delay-box-3{
+    animation-delay: .3s;
+}
+
+.delay-box-4{
+    animation-delay: .4s;
+}
+/* duration time animasi box */
 /* box */
 
 /* button filtering */
@@ -369,12 +421,18 @@
 }
 
 .dropdown-content button:hover {
-    background-color: #f1f1f1;
+    background-color: #1a8cff;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+/* duration time animasi box */
+.animate__animated.animate__backInDown {
+    --animate-duration: 1.7s;
+  }
+/* duration time animasi box */
 /* button filtering */
 
 /* carts */
@@ -451,6 +509,16 @@ th {
     /* color: #666; */
     text-align: justify;
 }
+
+/* duration time animasi about */
+.animate__animated.animate__fadeInUp {
+    --animate-duration: 1.3s;
+}
+
+.animate__animated.animate__fadeInDown {
+    --animate-duration: 1.3s;
+}
+/* duration time animasi about */
 /* about-us */
 
 /* team */
@@ -492,6 +560,32 @@ th {
     font-size: 1.1em;
     line-height: 1.6;
 }
+
+/* duration time animasi team */
+.delay-team-1,
+.delay-team-2,
+.delay-team-3{
+    animation-delay: .1s;
+}
+
+.delay-team-4,
+.delay-team-5,
+.delay-team-6{
+    animation-delay: .2s;
+}
+
+.delay-team-7,
+.delay-team-8,
+.delay-team-9{
+    animation-delay: .3s;
+}
+
+.delay-team-10,
+.delay-team-11,
+.delay-team-12{
+    animation-delay: .4s;
+}
+/* duration time animasi team */
 /* team */
 
 /* contact-us */

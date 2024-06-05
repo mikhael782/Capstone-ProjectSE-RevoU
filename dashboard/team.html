@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style-dashboard.css">
     <!-- font icon box -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- animate style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <!-- navbar -->
@@ -26,7 +28,7 @@
     <div class="container">
         <!-- side navbar -->
         <div class="sidebar">
-            <div id="menu-button">
+            <div class="animate__animated animate__fadeInLeft delay-sidebar-1" id="menu-button">
                 <input type="checkbox" id="menu-checkbox">
                 <label for="menu-checkbox" id="menu-label">
                     <div id="hamburger"></div>
@@ -34,7 +36,7 @@
             </div>
             <br><br>
             <div class="header">
-                <div class="list-item">
+                <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-2">
                     <a href="#">
                         <span class="desc-header">
                             TEAM 5 PALEMBANG
@@ -43,36 +45,35 @@
                 </div>
                 <hr>
                 <div class="main">
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-3">
                         <i class='bx bxs-dashboard icon'></i>
-                        <a href="dashboard.html">
+                        <a href="dashboard.html" class="active">
                             <span class="desc">Dashboard</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-4">
                         <i class='bx bxs-edit icon'></i>
-                        <!-- <i class='bx bx-objects-vertical-bottom icon'></i> -->
                         <a href="about-us.html">
                             <span class="desc">About</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-5">
                         <i class='bx bxs-user icon'></i>
                         <a href="team.html">
                             <span class="desc">Our Team</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-6">
                         <i class='bx bxs-contact icon'></i>
                         <a href="contact-us.html">
                             <span class="desc">Contact Us</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-7">
                         <i class='bx bxs-exit icon'></i>
                         <a href="../index.html">
                             <span class="desc">Kembali</span>
@@ -86,78 +87,89 @@
         <!-- main content -->
         <div class="main-content">
             <div class="content">
-                <p>Pages / Our Team</p>
-                <h2>Our Team</h2>
+                <p class="animate__animated animate__fadeInDown">Pages / Our Team</p>
+                <h2 class="animate__animated animate__fadeInUp">Our Team</h2>
 
                 <div id="team" class="team-container">
-                    <div class="team-card">
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-1">
                         <img src="../assets/img/user.jpg" alt="Person 1">
                         <h3>Dzikri Badaruzaman Al Haq</h3>
                         <p>Project Leader</p>
                         <br>
                     </div>
-                    <div class="team-card">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-2">
                         <img src="../assets/img/user.jpg" alt="Person 2">
                         <h3>Fitria Nur Hasanah</h3>
                         <p>Frontend Engineer</p>
                         <br>
                     </div>
-                    <div class="team-card">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-3">
                         <img src="../assets/img/user.jpg" alt="Person 3">
                         <h3>Ruth Syalomitha</h3>
                         <p>Frontend Engineer</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-4">
+                        <img src="../assets/img/user.jpg" alt="Person 4">
                         <h3>Ari Setyawan</h3>
                         <p>Frontend Engineer</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-5">
+                        <img src="../assets/img/user.jpg" alt="Person 5">
                         <h3>Mikhael Andreas N</h3>
                         <p>Frontend Engineer</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-6">
+                        <img src="../assets/img/user.jpg" alt="Person 6">
                         <h3>Immatul Hamza</h3>
                         <p>Pitch Deck Team</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-7">
+                        <img src="../assets/img/user.jpg" alt="Person 7">
                         <h3>Amila Fajarwati</h3>
                         <p>Pitch Deck Team</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-8">
+                        <img src="../assets/img/user.jpg" alt="Person 8">
                         <h3>Afdhal Afriandy</h3>
                         <p>Pitch Deck Team</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-9">
+                        <img src="../assets/img/user.jpg" alt="Person 9">
                         <h3>Fauzan Dwicah Saputra</h3>
                         <p>Deployment Team</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-10">
+                        <img src="../assets/img/user.jpg" alt="Person 10">
                         <h3>Nisa Aulia</h3>
                         <p>Quality Assurance</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-11">
+                        <img src="../assets/img/user.jpg" alt="Person 11">
                         <h3>Shafira Wahyu Nur Aziizah</h3>
                         <p>Quality Assurance</p>
                         <br>
                     </div>
-                    <div class="team-card">
-                        <img src="../assets/img/user.jpg" alt="Person 3">
+                    
+                    <div class="team-card animate__animated animate__fadeInUp delay-team-12">
+                        <img src="../assets/img/user.jpg" alt="Person 12">
                         <h3>Widy Silva Julianti</h3>
                         <p>Quality Assurance</p>
                         <br>

@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="style-dashboard.css">
     <!-- font icon box -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- animation on scroll javascript -->
+    <!-- animate style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- animate on scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <!-- Include DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
     <!-- navbar -->
@@ -28,7 +36,7 @@
     <div class="container">
         <!-- side navbar -->
         <div class="sidebar">
-            <div id="menu-button">
+            <div class="animate__animated animate__fadeInLeft delay-sidebar-1" id="menu-button">
                 <input type="checkbox" id="menu-checkbox">
                 <label for="menu-checkbox" id="menu-label">
                     <div id="hamburger"></div>
@@ -36,7 +44,7 @@
             </div>
             <br><br>
             <div class="header">
-                <div class="list-item">
+                <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-2">
                     <a href="#">
                         <span class="desc-header">
                             TEAM 5 PALEMBANG
@@ -45,36 +53,35 @@
                 </div>
                 <hr>
                 <div class="main">
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-3">
                         <i class='bx bxs-dashboard icon'></i>
                         <a href="#" class="active">
                             <span class="desc">Dashboard</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-4">
                         <i class='bx bxs-edit icon'></i>
-                        <!-- <i class='bx bx-objects-vertical-bottom icon'></i> -->
                         <a href="about-us.html">
                             <span class="desc">About</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-5">
                         <i class='bx bxs-user icon'></i>
                         <a href="team.html">
                             <span class="desc">Our Team</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-6">
                         <i class='bx bxs-contact icon'></i>
                         <a href="contact-us.html">
                             <span class="desc">Contact Us</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-7">
                         <i class='bx bxs-exit icon'></i>
                         <a href="../index.html">
                             <span class="desc">Kembali</span>
@@ -88,12 +95,12 @@
         <!-- main content -->
         <div class="main-content">
             <div class="content">
-                <p>Pages / Dashboard</p>
-                <h2>Dashboard Bike Sales In Europe</h2>
+                <p class="animate__animated animate__fadeInDown">Pages / Dashboard</p>
+                <h2 class="animate__animated animate__fadeInUp">Dashboard Bike Sales In Europe</h2>
 
                 <!-- box -->
                 <div class="content-box">
-                    <div class="isi-box">
+                    <div class="isi-box animate__animated animate__fadeInBottomRight delay-box-1">
                         <i class='bx bxs-bar-chart-alt-2'></i>
                         <div>
                             <h3>Total Profit</h3>
@@ -101,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="isi-box">
+                    <div class="isi-box animate__animated animate__fadeInBottomRight delay-box-2">
                         <i class='bx bx-dollar'></i>
                         <div>
                             <h3>Total Cost</h3>
@@ -109,7 +116,7 @@
                         </div>
                     </div>
 
-                    <div class="isi-box">
+                    <div class="isi-box animate__animated animate__fadeInBottomRight delay-box-3">
                         <i class='bx bx-line-chart'></i>
                         <div>
                             <h3>Total Revenue</h3>
@@ -117,7 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="isi-box">
+                    <div class="isi-box animate__animated animate__fadeInBottomRight delay-box-4">
                         <i class='bx bxs-copy-alt'></i>
                         <div>
                             <h3>Total Products</h3>
@@ -128,21 +135,21 @@
                 <!-- box -->
 
                 <!-- button dropdown untuk filtering chart -->
-                <div class="dropdown">
+                <div class="dropdown animate__animated animate__backInDown">
                     <button class="dropbtn">Filtering Chart</button>
                     <div class="dropdown-content">
+                        <button id="btn-refresh">Refresh Chart</button>
                         <button id="btn-penjualan">Penjualan Bulanan</button>
                         <button id="btn-aov">Average Of Value</button>
                         <button id="btn-qty-sold-ctg">Order Quantity by country</button>
                         <button id="btn-total-order-qty-country">Order Quantity by years</button>
                         <button id="btn-sold-age-ctg">Order Quantity by years</button>
-                        <button id="btn-refresh">Refresh</button>
                     </div>
                 </div>
                 <!-- button dropdown untuk filtering chart -->
 
                 <!-- chart -->
-                <div class="charts">
+                <div class="charts" data-aos="fade-up" data-aos-duration="1200">
                     <!-- bar chart Order Quantity -->
                     <div class="chart-container" id="chart-penjualan-bulanan">
                         <canvas id="orderQty"></canvas>
@@ -171,17 +178,31 @@
                 <!-- chart -->
 
                 <!-- tabel total pendapatan -->
-                <table id="product-table">
+                <!-- <table id="myTable" class="display">
                     <thead>
-                      <tr>
-                        <th>Product Category</th>
-                        <th>Sub Category</th>
-                        <th>Country</th>
-                        <th>Revenue</th>
-                      </tr>
+                        <tr>
+                            <th>Product Category</th>
+                            <th>Sub Category</th>
+                            <th>Country</th>
+                            <th>Revenue</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <!-- Data table akan muncuk disini -->
+                        Data table akan muncuk disini
+                    </tbody>
+                </table> -->
+
+                <table id="product-table">
+                    <thead>
+                        <tr>
+                            <th>Product Category</th>
+                            <th>Sub Category</th>
+                            <th>Country</th>
+                            <th>Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data table akan muncuk disini -->
                     </tbody>
                 </table>
             </div>
@@ -203,7 +224,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/dashboard.js"></script>
 
-    <!-- animation on scroll javascript -->
+    <!-- animate on scroll -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style-dashboard.css">
     <!-- font icon box -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- animate style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <!-- navbar -->
@@ -26,7 +28,7 @@
     <div class="container">
         <!-- side navbar -->
         <div class="sidebar">
-            <div id="menu-button">
+            <div class="animate__animated animate__fadeInLeft delay-sidebar-1" id="menu-button">
                 <input type="checkbox" id="menu-checkbox">
                 <label for="menu-checkbox" id="menu-label">
                     <div id="hamburger"></div>
@@ -34,7 +36,7 @@
             </div>
             <br><br>
             <div class="header">
-                <div class="list-item">
+                <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-2">
                     <a href="#">
                         <span class="desc-header">
                             TEAM 5 PALEMBANG
@@ -43,36 +45,35 @@
                 </div>
                 <hr>
                 <div class="main">
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-3">
                         <i class='bx bxs-dashboard icon'></i>
-                        <a href="dashboard.html">
+                        <a href="dashboard.html" class="active">
                             <span class="desc">Dashboard</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-4">
                         <i class='bx bxs-edit icon'></i>
-                        <!-- <i class='bx bx-objects-vertical-bottom icon'></i> -->
                         <a href="about-us.html">
                             <span class="desc">About</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-5">
                         <i class='bx bxs-user icon'></i>
                         <a href="team.html">
                             <span class="desc">Our Team</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-6">
                         <i class='bx bxs-contact icon'></i>
                         <a href="contact-us.html">
                             <span class="desc">Contact Us</span>
                         </a>
                     </div>
 
-                    <div class="list-item">
+                    <div class="list-item animate__animated animate__fadeInLeft delay-sidebar-7">
                         <i class='bx bxs-exit icon'></i>
                         <a href="../index.html">
                             <span class="desc">Kembali</span>
@@ -86,8 +87,8 @@
         <!-- main content -->
         <div class="main-content">
             <div class="content">
-                <p>Pages / Contact Us</p>
-                <h2>Contact Us</h2>
+                <p class="animate__animated animate__fadeInDown">Pages / Contact Us</p>
+                <h2 class="animate__animated animate__fadeInUp">Contact Us</h2>
 
                 <!-- contact -->
                 <div class="form-contact-container">
