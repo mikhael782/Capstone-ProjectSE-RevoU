@@ -22,7 +22,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#team">Our Team</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <!-- <li><a href="dashboard/dashboard.html">Project</a></li> -->
             </ul>
             <div class="menu-icon">
                 <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
@@ -59,7 +58,6 @@
                     pihak manajemen meminta tim data analis untuk menganalisa agar 
                     penjualan sepeda lebih meningkat dibandingkan penjualan aksesoris. 
                 </p>
-                <!-- <a href="dashboard.html">dashboard</a> -->
             </div>
         </div>
         <!-- about -->
@@ -89,7 +87,7 @@
                     <br>
                 </div>
                 <div class="team-card" data-aos="fade-up" data-aos-duration="1000">
-                    <img src="assets/img/user.jpg" alt="Person 4">
+                    <img src="assets/img/user-4.jpg" alt="Person 4">
                     <h3>Ari Setyawan</h3>
                     <p>Frontend Engineer</p>
                     <br>
@@ -102,7 +100,7 @@
                 </div>
                 <div class="team-card" data-aos="fade-up" data-aos-duration="2000">
                     <img src="assets/img/user-6.jpg" alt="Person 6">
-                    <h3>Immatul Hamza</h3>
+                    <h3>Imatul Hamza</h3>
                     <p>Pitch Deck Team</p>
                     <br>
                 </div>
@@ -165,15 +163,30 @@
                 </div>
                 <div class="right">
                     <div class="right-container">
-                        <form action="">
+                        <form id="inputForm">
                             <h2 class="lg-view animate__animated animate__fadeInDown">
                                 HUBUNGI KAMI
                             </h2>
-                            <input class="animate__animated animate__fadeInUp" type="text" placeholder="Nama">
-                            <input class="animate__animated animate__fadeInUp" type="email" placeholder="Alamat Email">
-                            <input class="animate__animated animate__fadeInUp" type="text" placeholder="Selection">
-                            <input class="animate__animated animate__fadeInUp" type="number" placeholder="team">
-                            <textarea class="animate__animated animate__fadeInUp" rows="10" placeholder="pesan"></textarea>
+                            <input class="animate__animated animate__fadeInUp" 
+                            type="text" id="nama" name="nama" placeholder="Nama"
+                            required>
+
+                            <input class="animate__animated animate__fadeInUp" 
+                            type="email" id="email" name="email" placeholder="Alamat Email"
+                            required>
+
+                            <input class="animate__animated animate__fadeInUp" 
+                            type="text" id="section" name="section" placeholder="Section"
+                            required>
+
+                            <input class="animate__animated animate__fadeInUp" 
+                            type="number" id="team" name="team" placeholder="team"
+                            required>
+
+                            <textarea class="animate__animated animate__fadeInUp" 
+                            rows="10" id="pesan" name="pesan" placeholder="pesan"
+                            required></textarea>
+
                             <button class="animate__animated animate__fadeInUp">Kirim</button>
                         </form>
                     </div>
@@ -227,6 +240,7 @@
 
         <script src="../js/main.js"></script>
         <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+        <script src="..js/validasiIndex.js"></script>
 
         <!-- animate on scroll -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
