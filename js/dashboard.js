@@ -352,6 +352,18 @@ const getSoldByAgeAndCtg = async () => {
 };
 
 // table Total Penjualan
+$(document).ready(function() {
+    $('#myTable').DataTable({
+        ajax: '../data/dataset.json',
+        columns: [
+            {'data' : 'Product_Category'},
+            {'data' : 'Sub_Category'},
+            {'data' : 'Country'},
+            {'data' : 'Revenue'}
+        ]
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     const maxDataToShow = 10; // Ubah sesuai dengan jumlah data maksimum yang ingin Anda tampilkan
     fetch("../data/dataset.json")
