@@ -92,15 +92,15 @@
 
                 <!-- contact -->
                 <div class="form-contact-container">
-                    <form action="#" method="POST">
+                    <form id="inputForm">
                         <label for="nama_lengkap">Nama Lengkap:</label>
-                        <input type="text" id="nama_lengkap" name="nama_lengkap" required>
+                        <input type="text" id="nama_lengkap" name="nama_lengkap">
 
                         <label for="email">Email Aktif:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email">
         
                         <label for="section">Section:</label>
-                        <select id="section" name="section" required>
+                        <select id="section" name="section">
                             <option value="Pilihan">-=Pilihan=-</option>
                             <option value="Jakarta">Jakarta</option>
                             <option value="Surabaya">Surabaya</option>
@@ -112,7 +112,7 @@
                         </select>  
                         
                         <label for="tim">Tim:</label>
-                        <select id="tim" name="tim" required>
+                        <select id="tim" name="tim">
                             <option value="Pilihan">-=Pilihan=-</option>
                             <option value="Tim 1">Tim 1</option>
                             <option value="Tim 2">Tim 2</option>
@@ -161,7 +161,7 @@
                         </select>
 
                         <label for="pesan">Pesan:</label>
-                        <textarea id="pesan" name="pesan" rows="5" required></textarea>
+                        <textarea id="pesan" name="pesan" rows="5"></textarea>
 
                         <br><br>
                         <input type="submit" value="Submit" class="button">
@@ -182,6 +182,6 @@
     </footer>
     <!-- footer -->
 
-    <script src="../js/main.js"></script>
+    <script src="../js/validasiDashboard.js"></script>
 </body>
 </html>
