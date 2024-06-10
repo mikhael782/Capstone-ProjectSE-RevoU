@@ -396,6 +396,7 @@
 .dropbtn {
     padding: 11px 28px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .dropdown-content {
