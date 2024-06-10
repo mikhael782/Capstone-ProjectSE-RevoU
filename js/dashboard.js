@@ -135,6 +135,7 @@ const getAverageOrderValue = async () => {
     const response = await fetch("../data/dataAOV.json");
     const dataJson = await response.json();
 
+    // membuat line chart
     new Chart(getAOV, {
         type: "line",
         data: {

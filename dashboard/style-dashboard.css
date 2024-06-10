@@ -465,21 +465,32 @@
 /* carts */
 
 /* table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #fff;
+.card {
+    background-color: #ffffff; /* warna background card */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* efek bayangan */
+    padding: 10px; /* padding diperbesar */
+    box-sizing: border-box; /* menambahkan box-sizing */
+    max-width: 100%;
+    border-radius: 8px;
     margin-bottom: 20px;
 }
 
-th, td {
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* efek bayangan saat dihover */
+}
+
+.card table {
+    border-collapse: collapse;
+}
+
+.card th,
+.card td {
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
 }
 
-th {
+.card th {
     background-color: #f2f2f2;
 }
 /* table */
