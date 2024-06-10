@@ -344,6 +344,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.2);
 }
 
 .content-box .isi-box i{
@@ -419,10 +420,13 @@
     background: none;
     text-align: left;
     cursor: pointer;
+    transition: all ease-in-out 0.4s;
 }
 
 .dropdown-content button:hover {
     background-color: #1a8cff;
+    transform: scale(1.05);
+    border-radius: 8px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -452,6 +456,13 @@
     background-color: #fff;
     border-radius: 8px;
     display: none;
+    transition: all ease-in-out 0.4s;
+    cursor: pointer;
+}
+
+.charts .chart-container:hover{
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.2);
 }
 /* carts */
 
@@ -540,7 +551,8 @@ th {
     width: 300px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan box shadow */
-    transition: box-shadow 0.3s ease; /* Efek transisi pada box shadow saat hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .team-card img {
@@ -562,31 +574,10 @@ th {
     line-height: 1.6;
 }
 
-/* duration time animasi team */
-.delay-team-1,
-.delay-team-2,
-.delay-team-3{
-    animation-delay: .1s;
+.team-card:hover{
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.5);
 }
-
-.delay-team-4,
-.delay-team-5,
-.delay-team-6{
-    animation-delay: .2s;
-}
-
-.delay-team-7,
-.delay-team-8,
-.delay-team-9{
-    animation-delay: .3s;
-}
-
-.delay-team-10,
-.delay-team-11,
-.delay-team-12{
-    animation-delay: .4s;
-}
-/* duration time animasi team */
 /* team */
 
 /* contact-us */
