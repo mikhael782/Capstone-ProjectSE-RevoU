@@ -130,7 +130,7 @@ const getOrderQuantity = async () => {
     });
 };
 
-// line chart Average Of Value
+// line chart Average Order Value
 const getAverageOrderValue = async () => {
     const response = await fetch("../data/dataAOV.json");
     const dataJson = await response.json();
@@ -142,7 +142,7 @@ const getAverageOrderValue = async () => {
             labels: dataJson.data.map((bikes) => bikes.Month),
             datasets: [
                 {
-                    label: 'Average Of Value',
+                    label: 'Average Order Value',
                     data: dataJson.data.map((bikes) => bikes.AoV),
                     backgroundColor: 'rgba(54, 162, 235, 1)',
                     borderColor: 'rgba(54, 162, 235, 1.5)',
